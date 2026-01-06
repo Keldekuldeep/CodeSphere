@@ -1,12 +1,10 @@
-# 🩸 BloodSaathi - Blood Donation System
+# 🩸 RakhtSaathi - Blood Emergency Coordination System
 
-A complete blood donation management system built with React.js frontend and Spring Boot backend.
+A complete blood donation management system built with React.js frontend and Firebase backend.
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Java 17
-- Maven 3.6+
 - Node.js 14+
 - Firebase Account
 
@@ -14,36 +12,30 @@ A complete blood donation management system built with React.js frontend and Spr
 
 1. **Clone and Setup:**
    ```bash
-   git clone <repository-url>
-   cd BloodSaathi
+   git clone https://github.com/Keldekuldeep/CodeSphere.git
+   cd CodeSphere
    ```
 
 2. **Start the System:**
    ```bash
    # Run the startup script
-   START_BLOODSAATHI.bat
+   START_RAKHT_SAATHI.bat
    ```
    
    OR manually:
    ```bash
-   # Terminal 1: Start Backend
-   cd backend
-   mvn spring-boot:run
-   
-   # Terminal 2: Start Frontend
    npm install
    npm start
    ```
 
 3. **Access Application:**
    - Frontend: http://localhost:3000
-   - Backend: http://localhost:8080
 
 ## 👥 Demo Accounts
 
-- **Admin**: admin@bloodsaathi.com / admin123
-- **Donor**: donor@test.com / donor123
-- **Needy**: needy@test.com / needy123
+- **Admin**: admin@demo.com / demo123
+- **Donor**: donor@demo.com / demo123
+- **Needy**: needy@demo.com / demo123
 
 ## 🎯 Features
 
@@ -63,7 +55,7 @@ A complete blood donation management system built with React.js frontend and Spr
 - Profile management
 
 ### 🆘 Needy Portal
-- Create blood requests
+- Create blood requests with voice messages
 - Track request status
 - Submit feedback
 - Profile management
@@ -90,21 +82,15 @@ A complete blood donation management system built with React.js frontend and Spr
 ### Frontend
 - React.js 18
 - React Router
-- Bootstrap 5
 - Firebase Authentication
+- Firebase Firestore
+- Firebase Storage
 - i18next (Multi-language)
-
-### Backend
-- Spring Boot 2.7
-- Spring Security
-- Spring Data JPA
-- H2 Database (Development)
-- Firebase Admin SDK
 
 ## 📁 Project Structure
 
 ```
-BloodSaathi/
+RakhtSaathi/
 ├── src/                    # React frontend
 │   ├── components/         # Reusable components
 │   ├── pages/             # Page components
@@ -112,13 +98,6 @@ BloodSaathi/
 │   ├── firebase/          # Firebase config
 │   ├── i18n/              # Multi-language
 │   └── services/          # API services
-├── backend/               # Spring Boot backend
-│   └── src/main/java/com/bloodsaathi/
-│       ├── controller/    # REST controllers
-│       ├── service/       # Business logic
-│       ├── entity/        # Database entities
-│       ├── repository/    # Data repositories
-│       └── config/        # Configuration
 ├── public/                # Static assets
 └── package.json          # Frontend dependencies
 ```
@@ -130,13 +109,14 @@ BloodSaathi/
 REACT_APP_FIREBASE_API_KEY=your_api_key
 REACT_APP_FIREBASE_AUTH_DOMAIN=bloodsaathi-69e5d.firebaseapp.com
 REACT_APP_FIREBASE_PROJECT_ID=bloodsaathi-69e5d
-REACT_APP_BACKEND_URL=http://localhost:8080
+REACT_APP_FIREBASE_STORAGE_BUCKET=bloodsaathi-69e5d.firebasestorage.app
 ```
 
 ### Firebase Setup
 1. Create Firebase project
-2. Enable Authentication (Phone)
-3. Add service account key to `backend/src/main/resources/`
+2. Enable Authentication (Email/Password)
+3. Enable Firestore Database
+4. Enable Storage
 
 ## 🚀 Deployment
 
@@ -146,29 +126,15 @@ npm run build
 # Deploy build folder
 ```
 
-### Backend (Heroku/AWS)
-```bash
-cd backend
-mvn clean package
-# Deploy JAR file
-```
-
-## 📱 Demo Mode
-
-The system runs in demo mode when Firebase billing is disabled:
-- Uses localStorage for session management
-- Bypasses phone authentication
-- All features remain functional
-
 ## 🐛 Troubleshooting
 
 ### Common Issues
 1. **Port conflicts**: Change ports in configuration
-2. **Firebase errors**: Check service account key
-3. **Maven issues**: Ensure Java 17 is configured
+2. **Firebase errors**: Check Firebase configuration
+3. **Authentication issues**: Verify Firebase Auth setup
 
 ### Support
-- Check logs in browser console and backend terminal
+- Check logs in browser console
 - Verify all dependencies are installed
 - Ensure Firebase project is properly configured
 
